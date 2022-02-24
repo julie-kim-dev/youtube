@@ -1,8 +1,10 @@
 import React from "react";
 
-function Video(){
+function Video(props){
     return(
-        <div></div>
+        <li>
+            {props.videoItem.snippet.channelTitle}
+        </li>
     )
 }
 
