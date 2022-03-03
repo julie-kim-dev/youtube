@@ -1,5 +1,5 @@
 .searchArea {
-    position: sticky;
+    position: sticky; /* IE 안되고 다른 브라우저도 상위 버전만 되는 경우가 많음. top 값 꼭 줘야 함 */
     top: 0;
     display: flex;
     justify-content: space-between;
@@ -21,7 +21,7 @@
 }
 
 .searchInput {
-    width: 500px;
+    width: 35vw;
     height: 40px;
     padding-left: 10px;
     margin-right: 4px;
@@ -32,15 +32,57 @@
 
 .searchbtn {
     background-color: #f3f3f3;
-    border: 1px solid #dfdfdf;
-    padding: 10px;
+    border-bottom: 1px solid #dfdfdf;
+    border-right: 1px solid #dfdfdf;
+    border-top: 1px solid #dfdfdf;
+    width: 60px;
+    height: 40px;
 }
 
 .searchbtn img {width: 24px;}
-.gridmenubtn img {width: 24px;}
+.btn-rightmenu img {width: 24px;}
 
 button {
     background: none;
     outline: none;
     border: none;
+    cursor: pointer;
+}
+
+.micbtn {
+    padding: 10px;
+    margin-left: 4px;
+}
+
+.micbtn i {
+    color: #a7a5a5;
+    font-size: 24px;
+}
+
+.topmenuarea {
+    display: flex;
+}
+
+.topmenuarea .btn-rightmenu {
+    padding: 10px;
+    margin-left: 8px;
+}
+
+.topmenuarea .btn-rightmenu i {
+    color: #a7a5a5;
+    font-size: 24px;
+}
+
+.logoarea {
+    display: flex;
+}
+
+.logoarea .btn-leftmenu {
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.logoarea .btn-leftmenu i {
+    color: #a7a5a5;
+    font-size: 20px;
 }
