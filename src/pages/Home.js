@@ -11,14 +11,14 @@ const Home = ({videoItems,onVideoClick,selectView}) => {
                 <Menubar />
             </div>
             <div className="content">
-                {
+                {/* { 필요 없어서 주석처리함
                     selectView && <div className="view"> <VideoView video={selectView} /> </div>
-                }
+                } */}
                 <div className="list">
                     <VideoList
                     videoItems={videoItems}
                     onVideoClick={onVideoClick}
-                    display={selectView ? "rowlist" : "collist"} />
+                    display="collist" />
                 </div>
             </div> {/* e:content */}
         </div>

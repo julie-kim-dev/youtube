@@ -34,7 +34,8 @@
 
 .titledata {
     text-align: left;
-    padding: 16px;
+    padding: 1em;
+    display: flex;
 }
 
 .title {
@@ -43,4 +44,18 @@
 
 .channelTitle {
     font-size: 11px;
+}
+
+/* 채널 이미지 */
+.titledata .channelImg {
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.titledata .channelImg img {
+    width: 36px;
+    height: 36px;
 }

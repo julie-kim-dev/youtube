@@ -11,14 +11,14 @@ const Search = ({videoItems,onVideoClick,selectView}) => {
                 <Menubar />
             </div>
             <div className="content">
-                {
+                {/* {
                     selectView && <div className="view"> <VideoView video={selectView} /> </div>
-                }
+                } */}
                 <div className="list">
                     <VideoList
                     videoItems={videoItems}
                     onVideoClick={onVideoClick}
-                    display={selectView ? "rowlist" : "collist"} />
+                    display="rowlist" />
                 </div>
             </div>
         </div>
