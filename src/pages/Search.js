@@ -18,7 +18,8 @@ const Search = ({videoItems,onVideoClick,selectView}) => {
                     <VideoList
                     videoItems={videoItems}
                     onVideoClick={onVideoClick}
-                    display="rowlist" />
+                    display="rowlist"
+                    search={true} />
                 </div>
             </div>
         </div>

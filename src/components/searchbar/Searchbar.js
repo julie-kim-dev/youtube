@@ -3,7 +3,7 @@ import "./searchbar.css";
 import { useRef } from "react";
 import { navigate, useNavigate, Link } from "react-router-dom";
 
-function Searchbar({searchResult}) {
+function Searchbar({searchResult,clickLogo}) {
     const inputRef=useRef();
     let navigate = useNavigate();
     
@@ -29,7 +29,7 @@ function Searchbar({searchResult}) {
         <div className="searchArea">
             <div className="logoarea">
                 <button className="btn-leftmenu"><i className="fa fa-solid fa-bars"></i></button>
-                <h1><Link to="/"><img src="/images/logo.png" alt="youtube" className="logoimg" /></Link></h1>
+                <h1><Link to="/"><img src="/images/logo.png" alt="youtube" className="logoimg" onclick={clickLogo} /></Link></h1>
             </div> {/* 왼쪽 */}
             <div className="searchInputArea">
                 <input type="search" placeholder="검색" className="searchInput" onKeyPress={inputEnter} ref={inputRef} />

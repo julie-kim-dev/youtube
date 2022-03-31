@@ -9,30 +9,48 @@ import Home from './pages/Home';
 import Search from './pages/Search';
 import Watch from './pages/Watch';
 
+let defaultVideos = JSON.parse(sessionStorage.getItem('defaultVideos')) || null;
+let selectedWatch = JSON.parse(sessionStorage.getItem('selectedWatch')) || null; //VideoView 컴포넌트
+
 function App({youtube}) {
+  const API_KEY =  process.env.REACT_APP_YOUTUBE_API_KEY;
   const [videoItems, setVideoItems] = useState([]);
   const [selectView,setSelectView] = useState(null);
   const selectVideo = (video) => {
     setSelectView(video); // 비디오가 받아지면 setSelectView 함수로 state 값 받아진 비디오로 업데이트
-    console.log(video)
+    selectedWatch = video;
+    // console.log(video)
   }
   const search = (searchValueTxt) => {
-    setSelectView(null)
-    youtube.searchResult(searchValueTxt).then(videos=>setVideoItems(videos));
+    setSelectView(null); //검색했을 때 뷰가 아닌 목록만 반환되도록 setSelectView는 null로 업데이트
+    youtube
+    .searchResult(searchValueTxt)
+    .then(videos => setVideoItems(videos));
   } // 서치 함수 끝
 
   useEffect(() => {
-    youtube.mostPopular().then(videos => setVideoItems(videos))
-  }, [])
+    youtube
+    .mostPopular()
+    .then(videos => {setVideoItems(videos); defaultVideos = videos})
+  }, []);
+
+  useEffect(()=>{
+    sessionStorage.setItem('defaultVideos', JSON.stringify(defaultVideos));
+    sessionStorage.setItem('selectedWatch', JSON.stringify(selectedWatch));
+  },[videoItems, selectView]);
+
+  const clickLogo = () => {
+    setVideoItems(defaultVideos);
+  }
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Searchbar searchResult={search} />
+        <Searchbar searchResult={search} clickLogo={clickLogo} />
         <Routes>
           <Route path='/' element={<Home videoItems={videoItems} onVideoClick={selectVideo} selectView={selectView}/> } />
           <Route path='/Search' element={<Search videoItems={videoItems} onVideoClick={selectVideo}  selectView={selectView}/> } />
-          <Route path='/Watch' element={<Watch videoItems={videoItems} onVideoClick={selectVideo} selectView={selectView}/> } />
+          <Route path='/Watch' element={<Watch videoItems={videoItems} onVideoClick={selectVideo} selectView={selectView} selectedWatch={selectedWatch} /> } />
         </Routes>
       </BrowserRouter>
     </div>

@@ -3,7 +3,7 @@ class YoutubeService{
         this.key = key;
         this.requestOptions = {
             method: 'GET',
-            redirect: 'follow'
+            redirect: 'follow',
         };
     }
 

@@ -1,8 +1,9 @@
 import React from "react";
 import "./menubar.css";
 import { Link } from "react-router-dom";
+import { memo } from 'react';
 
-function Menubar(){
+const Menubar = memo(() => {
     return(
         <div className="menubar-area">
             <Link to = "/" >
@@ -29,6 +30,6 @@ function Menubar(){
             </button>
         </div>
     )
-}
+});
 
 export default Menubar;

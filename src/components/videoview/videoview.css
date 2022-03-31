@@ -10,4 +10,9 @@
 
 .txtcontainer p {
     font-size: 14px;
+    display: -webkit-box;
+    overflow: hidden; /* 넘친 부분이 가려져야 해서 꼭 넣어야 함 */
+    -webkit-line-clamp: 3; /* 몇줄까지 보이게 할건지 */
+    -webkit-box-orient: vertical; /* 어느 방향으로 넘어가는지 */
+    word-break: break-all; /* 워드브레이킹은 영문과 한글 기준이 달라서 바꿔줘야 함. */
 }
