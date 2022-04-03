@@ -13,7 +13,7 @@ function VideoList({videoItems,onVideoClick,display,search}){
                     onVideoClick={onVideoClick}
                     display={display}
                     search={search} />
-                ))
+                )) //onVideoClick 으로  VideoView의  속성값을 내려줌
             }
         </ul>
     )

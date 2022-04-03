@@ -5,7 +5,7 @@ export function numberWithComma(x) {
 export function publishDate(publishDateValue) {
     const publishedDate = new Date (publishDateValue);
     const currentDate = new Date();
-    const second = (currentDate.getTime() - publishedDate.getTime()) / 1000;
+    const second = (currentDate.getTime() - publishedDate.getTime()) / 1000; //getTime() Gets the time value in milliseconds.
     let result;
     if(second < 60) {
         result=`${second} 초 전`;

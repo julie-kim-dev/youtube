@@ -13,8 +13,8 @@ const Watch = ({videoItems,onVideoClick,selectView, selectedWatch}) => {
                     videoItems={videoItems}
                     onVideoClick={onVideoClick}
                     display="rowlist" />
-                </div>
-            </div>
+                </div>{/* 화면 우측 */}
+            </div>{/* content 끝 */}
         </div>
     )
 }

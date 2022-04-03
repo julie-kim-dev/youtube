@@ -13,13 +13,15 @@ const Search = ({videoItems,onVideoClick,selectView}) => {
             <div className="content">
                 {/* {
                     selectView && <div className="view"> <VideoView video={selectView} /> </div>
+                    //selectView가 false면 false값 리턴, selectView가 true면(값이 있는 상태) VideoView 컴포넌트 리턴
                 } */}
                 <div className="list">
                     <VideoList
                     videoItems={videoItems}
                     onVideoClick={onVideoClick}
                     display="rowlist"
-                    search={true} />
+                    search={true} //video.js의 props 받아옴
+                    /> 
                 </div>
             </div>
         </div>

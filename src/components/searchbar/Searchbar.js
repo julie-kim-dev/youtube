@@ -1,7 +1,7 @@
 import React from "react";
 import "./searchbar.css";
 import { useRef } from "react";
-import { navigate, useNavigate, Link } from "react-router-dom";
+import { Navigate, useNavigate, Link } from "react-router-dom";
 
 function Searchbar({searchResult,clickLogo}) {
     const inputRef=useRef();
@@ -9,7 +9,7 @@ function Searchbar({searchResult,clickLogo}) {
     
     /* enter 클릭시 호출되는 공통함수 */
     const searchfnc = () => {
-        const value = inputRef.current.value; // input의 value 값을 가져온다
+        const value = inputRef.current.value; // input의 value 값을 가져온다(.current.value라고 정해져있음)
         searchResult(value);
         navigate(`/search?search_query=${value}`)
     }
@@ -32,7 +32,7 @@ function Searchbar({searchResult,clickLogo}) {
                 <h1><Link to="/"><img src="/images/logo.png" alt="youtube" className="logoimg" onclick={clickLogo} /></Link></h1>
             </div> {/* 왼쪽 */}
             <div className="searchInputArea">
-                <input type="search" placeholder="검색" className="searchInput" onKeyPress={inputEnter} ref={inputRef} />
+                <input type="search" placeholder="검색어를 입력하세요" className="searchInput" onKeyPress={inputEnter} ref={inputRef} />
                 <button className="searchbtn" onClick={inputclick}>
                     <img src="/images/searchicon.png" alt="search" />
                 </button>
